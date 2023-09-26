@@ -1,7 +1,23 @@
 {% extends "learning_logs/base.html" %}
 
+{% block header %}
+    <div class='jumbotron'>
+        <h1>Track your learning.</h1>
+    </div>
+{% endblock header %}
+
 {% block content %}
-    <p>Learning Log helps you keep track of learning, for any topic you`re learning about.</p>
+    <h2>
+        <a href="{% url 'users:register' %}">Register an account</a> to make your own learning log, and start tracking your learning today.
+    </h2>
+    <h2>
+        <a href="{% url 'users:login' %}">Log in</a> if you already have an account.
+    </h2>
 
+    <h2>What is a learning log?</h2>
+    <p>Learning Log is a personal journal for recording what you`re learning about.</p>
+
+    <h2>Why keep a learning log?</h2>
+    <p>Because it helps you to learn more effectively.  When you write about a topic, you`re forced to think about it more deeply and clearly.  You make connections between ideas, spot patterns, and recognize concepts that you might otherwise have missed.</p>
+    
 {% endblock content %}
-

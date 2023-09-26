@@ -1,31 +1,27 @@
 {% extends 'learning_logs/base.html' %} 
 
+{% block header %}
+  <h2>{{ topic }}</h2>
+{% endblock header %}
+
 {% block content %}
-
-<p>Topic: {{ topic }}</p>
-
-<p>Entries:</p>
-
-<p>
-  <a href="{% url 'learning_logs:new_entry' topic.id %}">Add a new entry</a>
-</p>
-
-<ul>
+<p><a href="{% url 'learning_logs:new_entry' topic.id %}">Add a new entry</a></p>
   {% for entry in entries %}
-    <li>
-      <p>{{ entry.date_added|date:'M d, Y H:i' }}</p>
-      <p>{{ entry.text|linebreaks }}</p>
-    </li>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>
+          {{ entry.date_added|date:'M d, Y H:i' }}
+        <small>
+          <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a>
+        </small>
+        </h3>
+      </div>
+      <div class="panel-body">
+      {{ entry.text|linebreaks }}
+      </div>
+    </div> <!-- panel -->
   {% empty %}
-    <li>There are no entries for this topic yet.</li>
+    There are no entries for this topic yet.
   {% endfor %}
-</ul>
 {% endblock content %}
-<!--  -->
-<!-- The template topic.html extends base.html, so it has access to the same blocks of code as topics.html. The block content is defined in topic.html, and it displays the name of the topic and a list of all entries associated with the topic. -->
-<!--  -->
-<!-- The template topic.html uses a for loop to display all entries associated with the topic. Each entry is displayed in a list item, and each list item contains the date and time the entry was posted, and the text of the entry. -->
-<!--  -->
-<!-- If a topic has no entries, the template displays a message informing the user that no entries have been posted yet. -->
-
-
+  
