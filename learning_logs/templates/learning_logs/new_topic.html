@@ -1,0 +1,17 @@
+{% extends 'learning_logs/base.html' %} 
+
+{% block content %}
+
+    <p>Add a new topic:</p>
+
+    <form action="{% url 'learning_logs:new_topic' %}" method='post'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">add topic</button>
+    </form>
+
+{% endblock content %}
+<!--  -->
+<!-- The template new_topic.html extends base.html, so it has access to the same blocks of code as topics.html. The block content is defined in new_topic.html, and it displays a form that allows users to submit a new topic. --> 
+
+
