@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # third-party apps
-    'bootstrap3',     	
+    'bootstrap5',     	
 
     # my apps
     'learning_logs',
@@ -122,6 +122,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/users/login/' # define a URL onde o Django redireciona os usuários quando eles tentam acessar uma página que requer autenticaçãos
 
 # Configurações de bootstrap
-BOOTSTRAP3 = {
+BOOTSTRAP5 = {
     'include_jquery': True,
 }
